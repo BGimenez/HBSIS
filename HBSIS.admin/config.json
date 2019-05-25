@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "HbsisDB": "Server=localhost;Database=HbsisDB;Uid=root;Pwd=root;"
+  }
+}

@@ -1,0 +1,24 @@
+<h1>Lista de Clientes</h1>
+
+<p *ngIf="!clientes"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="clientes">
+  <thead>
+    <tr>
+      <th>Cód.</th>
+      <th>Nome</th>
+      <th>Cnpj</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{ cliente.id }}</td>
+      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.cnpj }}</td>
+      <td>{{ cliente.latitude }}</td>
+      <td>{{ cliente.longitude }}</td>
+    </tr>
+  </tbody>
+</table>
