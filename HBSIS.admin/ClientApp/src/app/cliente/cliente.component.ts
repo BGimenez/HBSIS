@@ -23,7 +23,7 @@ export class ClienteComponent implements OnInit {
 
 interface Cliente {
   id: number;
-  nome: string;
+  razaoSocial: string;
   cnpj: string;
   latitude: number;
   longitude: number;

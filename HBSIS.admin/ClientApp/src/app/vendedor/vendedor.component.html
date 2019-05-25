@@ -1,0 +1,24 @@
+<h1>Lista de Vendedores</h1>
+
+<p *ngIf="!vendedores"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="vendedores">
+  <thead>
+    <tr>
+      <th>Cód.</th>
+      <th>Nome</th>
+      <th>Cpf</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vendedor of vendedores">
+      <td>{{ vendedor.id }}</td>
+      <td>{{ vendedor.nome }}</td>
+      <td>{{ vendedor.cpf }}</td>
+      <td>{{ vendedor.latitude }}</td>
+      <td>{{ vendedor.longitude }}</td>
+    </tr>
+  </tbody>
+</table>

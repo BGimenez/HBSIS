@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Cód.</th>
-      <th>Nome</th>
+      <th>Razão Social</th>
       <th>Cnpj</th>
       <th>Latitude</th>
       <th>Longitude</th>
@@ -15,7 +15,7 @@
   <tbody>
     <tr *ngFor="let cliente of clientes">
       <td>{{ cliente.id }}</td>
-      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.razaoSocial }}</td>
       <td>{{ cliente.cnpj }}</td>
       <td>{{ cliente.latitude }}</td>
       <td>{{ cliente.longitude }}</td>
