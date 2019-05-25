@@ -1,30 +1,34 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ClienteService, Cliente } from './cliente.service';
+//import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
-  styleUrls: ['./cliente.component.css']
+  styleUrls: ['./cliente.component.css']//,
+  //providers: [ClienteService]
 })
 export class ClienteComponent implements OnInit {
 
   clientes: Cliente[];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Cliente[]>(baseUrl + 'api/cliente').subscribe(result => {
+  //constructor(http: HttpClient) {
+  constructor(private service: ClienteService) {
+    
+  }
+
+  ngOnInit() {
+    this.getClientes();
+  }
+
+  getClientes(): void {
+    this.service.getClientes().subscribe(result => {
       this.clientes = result;
     }, error => console.error(error));
   }
 
-  ngOnInit() {
+  onDelete(cli: Cliente) {
+    console.log("Deletar cliente: " + cli.razaoSocial);
   }
 
-}
-
-interface Cliente {
-  id: number;
-  razaoSocial: string;
-  cnpj: string;
-  latitude: number;
-  longitude: number;
 }

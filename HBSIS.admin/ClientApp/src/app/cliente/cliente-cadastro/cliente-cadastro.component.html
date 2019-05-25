@@ -1,0 +1,28 @@
+<h2>Cadastro de Cliente</h2>
+
+<div ng-form="">
+  <label>
+    Razão Social:
+    <input [(ngModel)]="cliente.razaoSocial" />
+  </label>
+  <br />
+  <label>
+    CNPJ:
+    <input [(ngModel)]="cliente.cnpj" />
+  </label>
+  <br />
+  <label>
+    Latitude:
+    <input [(ngModel)]="cliente.latitude"
+           type="number" />
+  </label>
+  <br />
+  <label>
+    Longitude:
+    <input [(ngModel)]="cliente.longitude"
+           type="number" />
+  </label>
+</div>
+
+<button type="button" (click)="onSalvar()" class="btn btn-success">Salvar</button>
+<button type="button" [routerLink]='["/cliente"]' class="btn btn-danger">Cancelar</button>

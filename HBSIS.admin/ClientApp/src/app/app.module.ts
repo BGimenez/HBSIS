@@ -9,6 +9,13 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { VendedorComponent } from './vendedor/vendedor.component';
+import { VendedorCadastroComponent } from './vendedor/vendedor-cadastro/vendedor-cadastro.component';
+import { ClienteCadastroComponent } from './cliente/cliente-cadastro/cliente-cadastro.component';
+
+import { ClienteService } from './cliente/cliente.service';
+import { VendedorService } from './vendedor/vendedor.service';
+import { ClienteEdicaoComponent } from './cliente/cliente-edicao/cliente-edicao.component';
+import { VendedorEdicaoComponent } from './vendedor/vendedor-edicao/vendedor-edicao.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +23,11 @@ import { VendedorComponent } from './vendedor/vendedor.component';
     NavMenuComponent,
     HomeComponent,
     ClienteComponent,
-    VendedorComponent
+    VendedorComponent,
+    VendedorCadastroComponent,
+    ClienteCadastroComponent,
+    ClienteEdicaoComponent,
+    VendedorEdicaoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -26,9 +37,16 @@ import { VendedorComponent } from './vendedor/vendedor.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'cliente', component: ClienteComponent },
       { path: 'vendedor', component: VendedorComponent },
+      { path: 'vendedor/cadastro', component: VendedorCadastroComponent },
+      { path: 'vendedor/:id', component: VendedorEdicaoComponent },
+      { path: 'cliente/cadastro', component: ClienteCadastroComponent },
+      { path: 'cliente/:id', component: ClienteEdicaoComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    ClienteService,
+    VendedorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,28 @@
+<h2>Cadastro de Vendedor</h2>
+
+<div>
+  <label>
+    Nome:
+    <input [(ngModel)]="vendedor.nome" />
+  </label>
+  <br />
+  <label>
+    CPF:
+    <input [(ngModel)]="vendedor.cpf" />
+  </label>
+  <br />
+  <label>
+    Latitude:
+    <input [(ngModel)]="vendedor.latitude"
+           type="number" />
+  </label>
+  <br />
+  <label>
+    Longitude:
+    <input [(ngModel)]="vendedor.longitude"
+           type="number" />
+  </label>
+</div>
+
+<button type="button" (click)="onSalvar()" class="btn btn-success">Salvar</button>
+<button type="button" [routerLink]='["/vendedor"]' class="btn btn-danger">Cancelar</button>

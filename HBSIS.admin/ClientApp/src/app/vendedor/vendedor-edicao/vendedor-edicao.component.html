@@ -1,0 +1,28 @@
+<h2>Edição do Vendedor</h2>
+
+<div *ngIf="vendedor">
+  <div>
+    <label>Id: {{ vendedor.id }}</label>
+  </div>
+  <div>
+    <label>Nome:</label>
+    <input [(ngModel)]="vendedor.nome" placeholder="Nome" />
+  </div>
+  <div>
+    <label>CPF:</label>
+    <input [(ngModel)]="vendedor.cpf" placeholder="CPF" />
+  </div>
+  <div>
+    <label>Latitude:</label>
+    <input [(ngModel)]="vendedor.latitude" placeholder="Latitude" />
+  </div>
+  <div>
+    <label>Longitude:</label>
+    <input [(ngModel)]="vendedor.longitude" placeholder="Longitude" />
+  </div>
+
+  <p>
+    <button type="button" class="btn btn-success" (click)="onSalvar()">Salvar</button>
+    <button type="button" class="btn btn-warning" (click)="onVoltar()">Voltar</button>
+  </p>
+</div>

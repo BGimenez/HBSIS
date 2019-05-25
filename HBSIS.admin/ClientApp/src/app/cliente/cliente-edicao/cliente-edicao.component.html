@@ -1,0 +1,28 @@
+<h2>Edição do Cliente</h2>
+
+<div *ngIf="cliente">
+  <div>
+    <label>Id: {{ cliente.id }}</label>
+  </div>
+  <div>
+    <label>Razão Social:</label>
+    <input [(ngModel)]="cliente.razaoSocial" placeholder="Razão Social"/>
+  </div>
+  <div>
+    <label>CNPJ:</label>
+    <input [(ngModel)]="cliente.cnpj" placeholder="CNPJ"/>
+  </div>
+  <div>
+    <label>Latitude:</label>
+    <input [(ngModel)]="cliente.latitude" placeholder="Latitude"/>
+  </div>
+  <div>
+    <label>Longitude:</label>
+    <input [(ngModel)]="cliente.longitude" placeholder="Longitude"/>
+  </div>
+
+  <p>
+    <button type="button" class="btn btn-success" (click)="onSalvar()">Salvar</button>
+    <button type="button" class="btn btn-warning" (click)="onVoltar()">Voltar</button>
+  </p>
+</div>

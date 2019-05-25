@@ -33,6 +33,19 @@ namespace HBSIS.admin.Controllers
             }
         }
 
+        [HttpGet("ObterPorId")]
+        public IActionResult ObterPorId(int id)
+        {
+            try
+            {
+                return Ok(_vendedorRepositorio.ObterPorId(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody]Vendedor ven)
         {
@@ -41,6 +54,21 @@ namespace HBSIS.admin.Controllers
                 _vendedorRepositorio.Adicionar(ven);
 
                 return Created("api/vendedor", ven);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPut]
+        public IActionResult Put([FromBody]Vendedor ven)
+        {
+            try
+            {
+                _vendedorRepositorio.Atualizar(ven);
+
+                return Ok(ven);
             }
             catch (Exception ex)
             {

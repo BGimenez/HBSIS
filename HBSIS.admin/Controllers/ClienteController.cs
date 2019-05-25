@@ -32,6 +32,19 @@ namespace HBSIS.admin.Controllers
             }
         }
 
+        [HttpGet("ObterPorId")]
+        public IActionResult ObterPorId(int id)
+        {
+            try
+            {
+                return Ok(_clienteRepositorio.ObterPorId(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody]Cliente cli)
         {
@@ -40,6 +53,21 @@ namespace HBSIS.admin.Controllers
                 _clienteRepositorio.Adicionar(cli);
 
                 return Created("api/cliente", cli);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPut]
+        public IActionResult Put([FromBody]Cliente cli)
+        {
+            try
+            {
+                _clienteRepositorio.Atualizar(cli);
+
+                return Ok(cli);
             }
             catch (Exception ex)
             {
